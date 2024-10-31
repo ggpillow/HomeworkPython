@@ -14,7 +14,7 @@ directories = {
 }
 
 while True:
-    user_command = input("Введите команду 'p'или 's' или 'q' для выхода: ")
+    user_command = input("Введите команду 'p' или 's'. Если хотите выйти, то введите 'q' для выхода: ")
 
     def find_owner(number_doc):
         for document in documents:
@@ -30,18 +30,23 @@ while True:
         return "Документ не найден!"
 
 
-    number_doc = input("Введите номер документа: ")
-
-    if user_command == 'p':
-        print(find_owner(number_doc))
-    elif user_command == 's':
-        print(find_document(number_doc))
-    elif user_command == '':
-        print("Вы ничего не ввели!")
-    elif user_command == 'q':
+    if user_command == 'q':
         break
     else:
-        print("Такой команды не существует!")
+        number_doc = input("Введите номер документа: ")
+
+        if user_command == 'p':
+            print(find_owner(number_doc))
+        elif user_command == 's':
+            print(find_document(number_doc))
+        elif user_command == '':
+            print("Вы ничего не ввели!")
+        elif user_command == 'q':
+            break
+        else:
+            print("Такой команды не существует!")
+
+
 
 
 
